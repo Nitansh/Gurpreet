@@ -1,0 +1,230 @@
+
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container"><a href="#/" class="brand">Authoring</a>
+      <ul class="nav">
+        <li class="active"><a>Details for problem {{problem.guid}}</a></li>
+      </ul>
+      <button ng-click="save()" class="btn pull-left">Save All</button>
+      <p ng-show="isDataSaved()" class="save-text pull-left">Data saved.</p>
+    </div>
+  </div>
+</div>
+<div style="padding-top: 40px" class="container details">
+  <form class="form-horizontal">
+    <legend>General</legend>
+    <div class="control-group">
+      <label class="control-label">Title</label>
+      <div class="controls">
+        <input type="text" ng-model="problem.title" class="span4"/>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label">Status</label>
+      <div class="controls">
+        <select ng-model="problem.status" ng-options="k as v for (k,v) in statuses" class="span4"></select>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label">Book</label>
+      <div class="controls">
+        <input type="text" ng-model="problem.book" class="span4"/>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label">Chapter</label>
+      <div class="controls">
+        <input type="text" ng-model="problem.chapter" class="span4"/>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label">Learning Objective</label>
+      <div class="controls">
+        <input type="text" ng-model="problem.learningObjective" class="span4"/>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label">Company</label>
+      <div class="controls">
+        <input type="text" ng-model="problem.company.name" class="span4"/>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label">Owner Type</label>
+      <div class="controls">
+        <select ng-model="problem.ownerType" class="span4">
+          <option value="soleProprietorship">Sole Proprietorship </option>
+          <option value="corporation">Corporation</option>
+        </select>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label">Company Type</label>
+      <div class="controls">
+        <select ng-model="problem.companyType" class="span4">
+          <option value="service">Service</option>
+          <option value="service+merchandiserPerpetual">Combo Service + Merchandiser Perpetual</option>
+          <option value="service+merchandiserPeriodic">Combo Service + Merchandiser Periodic</option>
+          <option value="merchandiserPerpetual">Merchandiser Perpetual</option>
+          <option value="merchandiserPeriodic">Merchandiser Periodic</option>
+        </select>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label">Period</label>
+      <div class="controls">
+        <div class="input-append">
+          <input type="text" bs-datepicker="bs-datepicker" ng-model="problem.period.start" class="span2"/>
+          <button type="button" data-toggle="datepicker" class="btn"><i class="icon-calendar"></i></button>
+        </div>
+        <select ng-model="problem.period.length" class="span2">
+          <option value="1">Month</option>
+          <option value="2">2 months</option>
+          <option value="3">Quarter</option>
+          <option value="4">4 months</option>
+          <option value="5">5 months</option>
+          <option value="6">6 months</option>
+          <option value="7">7 months</option>
+          <option value="8">8 months</option>
+          <option value="9">9 months</option>
+          <option value="10">10 months</option>
+          <option value="11">11 months</option>
+          <option value="12">Year </option>
+        </select>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label">Background</label>
+      <div class="controls controls-row">
+        <textarea jwysiwyg="jwysiwyg" ng-model="problem.background" class="span8"></textarea>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label">Instructions</label>
+      <div class="controls controls-row">
+        <textarea jwysiwyg="jwysiwyg" ng-model="problem.instructions" class="span8"></textarea>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label">Reports hidden</label>
+      <div class="controls controls-row">
+        <label class="checkbox">
+          <input type="checkbox" ng-model="problem.reportsHidden.transactionsByDate"/>Transactions By Date
+        </label>
+        <label class="checkbox">
+          <input type="checkbox" ng-model="problem.reportsHidden.generalLedger"/>General Ledger
+        </label>
+        <label class="checkbox">
+          <input type="checkbox" ng-model="problem.reportsHidden.trialBalance"/>Trial Balance
+        </label>
+        <label class="checkbox">
+          <input type="checkbox" ng-model="problem.reportsHidden.incomeStatement"/>Income Statement
+        </label>
+        <label class="checkbox">
+          <input type="checkbox" ng-model="problem.reportsHidden.statementOfEquity"/>Statement of Equity
+        </label>
+        <label class="checkbox">
+          <input type="checkbox" ng-model="problem.reportsHidden.balanceSheet"/>Balance Sheet
+        </label>
+        <label class="checkbox">
+          <input type="checkbox" ng-model="problem.reportsHidden.cashFlow"/>Cash Flow
+        </label>
+      </div>
+    </div>
+  </form>
+  <form>
+    <legend>Events</legend>
+    <div ng-repeat="event in problem.events | orderBy:[&quot;date.valueOf()&quot;, &quot;id&quot;]" class="controls controls-row">
+      <input type="text" bs-datepicker="bs-datepicker" ng-model="event.date" class="span2"/>
+      <textarea ng-model="event.item" init-focus="init-focus" class="span8"></textarea>
+      <div class="span1"><i ng-click="deleteEvent(event)" class="icon-trash"></i></div>
+    </div>
+    <div class="row">
+      <button type="button" ng-click="newEvent()" class="offset2 btn">New Event</button>
+    </div>
+  </form>
+  <form when-visible="isSolutionVisible">
+    <legend>Correct Solution</legend>
+    <div class="row">
+      <div class="span2">Date</div>
+      <div class="span6">Account</div>
+      <div class="span1">Debit </div>
+      <div class="span1">Credit</div>
+    </div>
+    <div ng-repeat="transaction in solution.transactions | orderBy:['date.valueOf()', 'id']">
+      <div ng-repeat="row in transaction.rows | orderBy:['!debit', 'subTransactionId']" class="controls controls-row">
+        <input ng-show="$first" type="text" bs-datepicker="bs-datepicker" ng-model="transaction.date" class="span2"/>
+        <div ng-show="$last" ng-click="newTransactionRow(transaction)" class="new-row span2">+ row</div>
+        <div ng-show="! $first &amp;&amp; ! $last" class="new-row span2"></div>
+        <select ui-select2="ui-select2" ng-model="row.account" data-placeholder="Select an account" class="span6">
+          <option value=""></option>
+          <option ng-repeat="act in chartOfAccounts.accountList | filter:accountIncludedInProblem | orderBy:&quot;number&quot;" value="{{act.number}}">{{ act.number }} - {{ problem.accounts[act.number].name }}</option>
+        </select>
+        <div class="span1">
+          <input type="text" ng-model="row.debit" class="span1"/>
+        </div>
+        <div class="span1">
+          <input type="text" ng-model="row.credit" class="span1"/>
+        </div>
+        <div ng-show="! ($last &amp;&amp; $index == 1)" class="span1"><i ng-click="deleteTransactionRow(transaction, row)" class="icon-trash"></i></div>
+      </div>
+    </div>
+    <div class="row">
+      <button type="button" ng-click="newTransaction()" class="btn offset2">New Transaction</button>
+    </div>
+  </form>
+  <form>       
+    <legend>Chart of Accounts</legend>
+    <div class="controls controls-row">
+      <button ng-click="selectNone()" class="btn">Select none</button>
+      <button ng-click="selectAll()" class="btn">Select all</button>
+      <button ng-click="defaultIncludedAccounts()" class="btn">Default enabled</button>
+      <button ng-click="defaultAccountNames()" class="btn">Default account names</button>
+      <button ng-click="zeroInitialBalances()" class="btn">Zero initial balances</button>
+    </div>
+    <div class="row">
+      <table class="table table-condensed span10">
+        <tr>
+          <th>Enabled</th>
+          <th>Account</th>
+          <th></th>
+          <th>Initial Balance</th>
+        </tr>
+        <tr ng-repeat="act in chartOfAccounts.accountList | orderBy:&quot;number&quot;">
+          <td>
+            <input type="checkbox" ng-model="problem.accounts[act.number].isIncluded"/>
+          </td>
+          <td>{{ act.number }}</td>
+          <td>
+            <input type="text" ng-model="problem.accounts[act.number].name" class="span7"/>
+          </td>
+          <td>
+            <input type="text" ng-model="problem.accounts[act.number].openingBalance" class="span1"/>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </form>
+  <hr/>
+  <button ng-click="save()" class="btn">Save All</button>
+</div>
+<div ng-show="isSolutionVisible" class="navbar navbar-fixed-bottom">
+  <div class="navbar-inner">
+    <div id="condensed-event-list" class="container">
+      <table class="table table-condensed">
+        <thead>
+          <tr>
+            <th>Date </th>
+            <th>Event</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="event in problem.events | orderBy:[&quot;date.valueOf()&quot;, &quot;id&quot;]">
+            <td class="date">{{event.date.short()}}</td>
+            <td>{{event.item}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

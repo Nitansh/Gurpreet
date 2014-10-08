@@ -1,0 +1,38 @@
+
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container"><a href="#/" class="brand">Authoring</a>
+      <ul class="nav"> 
+        <li class="active"><a>Problem List</a></li>
+      </ul>
+      <form class="navbar-search pull-right">
+        <input type="text" placeholder="Search" ng-model="query" class="search-query"/>
+      </form>
+    </div>
+  </div>
+</div>
+<div style="padding-top: 40px" class="container problem-list">
+  <table class="table">
+    <thead>
+      <th>GUID</th>
+      <th>Title </th>
+      <th>Status</th>
+      <th>Book</th>
+      <th>Chapter</th>
+      <th>Learning Objective</th>
+      <th></th>
+    </thead>
+    <tbody>
+      <tr ng-repeat="p in problems | filter:query">
+        <td> <a href="#/details/{{p.guid}}">{{p.guid}}</a></td>
+        <td>{{p.title}}</td>
+        <td>{{statuses[p.status]}}</td>
+        <td>{{p.book}}</td>
+        <td>{{p.chapter}}</td>
+        <td>{{p.learningObjective}}</td>
+        <td><i ng-click="deleteProblem(p)" class="icon-trash"></i></td>
+      </tr>
+    </tbody>
+  </table>
+  <button ng-click="newProblem()" class="btn">New Problem</button>
+</div>
