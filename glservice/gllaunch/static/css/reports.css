@@ -1,0 +1,471 @@
+@charset "UTF-8";
+/* CSS Document */
+
+.glBody {
+	padding-left: 0.5em;
+	padding-top: 0.5em;
+	background-color: #FFF;
+	font-size: 13px;
+	border-radius: 10px;
+}
+
+.glAccount {
+	padding-bottom: 1em;
+}
+
+.glAcctHeader {
+	width: 51em;
+	/* background-color: #ebf7f1; */
+	height: 1em;
+	font-size: 0.9em;
+	font-weight: bold;
+	padding: 0.5em 0.5em;
+	border-bottom: 2px solid #6C9;
+}
+
+.glAcctHeader div {
+	display: inline;
+}
+
+.glAcctHeader div:nth-child(2) {
+	float: right;
+}
+
+.glAccount .acctBlock {
+	margin-left: 20px;
+}
+
+.glAccount table {
+	font-size: 1em;
+	margin: 0;
+	padding: 0;
+	margin-left: 1em;
+	border: none; /* solid 1px #CCCCCC; */
+	
+}
+
+.glTableFix {
+	padding-left:32.5em;
+	padding-right: 1em;
+	margin-left: 1em;
+	margin-top: 0.5em;
+	width: 10.8em;
+	text-align: center;
+	background-color: #EEEEEE;
+}
+
+.glAccount table tr td, .glAccount table tr th {
+	font-size: 0.9em;
+	width: 5em;
+	padding: 0.5em;
+	margin-top: 0;
+}
+
+.glAccount table tr th {
+	text-align: right;
+	border-bottom: solid 1px #CCCCCC;
+	background-color: #EEEEEE;
+}
+
+.glAccount table tr td {
+	text-align: right;
+	border: none;
+	background-color: #FFF;
+}
+
+.glAccount table tr td {
+	text-align: right;
+	border: none;
+	background-color: #FFF;
+}
+
+.glAccount table tr:nth-of-type(odd) td {
+	background-color:#FAFAFA;
+}
+
+.glAccount table tr td:nth-child(1), .glAccount table tr th:nth-child(1) {
+	width: 15em;
+	text-align: left;
+}
+
+.glAccount table tr td:nth-child(3), .glAccount table tr th:nth-child(3) {
+	padding-right: 4.5em;
+}
+
+.glAccount table tr td:nth-child(4), .glAccount table tr th:nth-child(4) {
+	border-left: solid 1px #DDDDDD;
+	padding-left: 3.5em;
+}
+
+.glAccount table tr td:nth-child(5), .glAccount table tr th:nth-child(5) {
+	padding-right: 3em;
+}
+
+.glAccount table tr:nth-child(2) {
+	font-style:italic;
+}
+
+/* balance sheet */
+.bsBody {
+	padding-left: 0.5em;
+	padding-top: 0.5em;
+	padding-bottom: 2em;
+	background-color: #FFF;
+	font-size: 13px;
+	border-radius: 10px;
+}
+
+.bsTitle {
+	width: 25em;
+	font-size: 1.2em;
+	font-weight: bold;
+	text-align: center;
+	display: inline-block;
+}
+
+.bsBody h3 {
+	display: inline-block;
+	width: 80%;
+	font-weight: bold;
+	font-size: 1.1em;
+	border-bottom: solid 2px #6C9;
+	padding-bottom: 0.25em;
+	padding-top: 1em;
+}
+
+.bsBody .sectionHeader {
+	font-size: 1.1em;
+	width: 75%;
+	border-bottom: solid 2px #ebf7f1;
+	padding-top: 0.5em;
+	padding-bottom: 0.5em;
+	margin-left: 0.5em;
+	margin-top: 0.5em;
+}
+
+.bsBody .sectionItem {
+	padding-left: 3em;
+}
+
+.bsBody .itemAccount {
+	padding-top:0.45em;
+	padding-bottom:0.25em;
+	width: 38em;
+	display: inline-block;
+}
+
+.cfItemAccount {
+	padding-top:0.45em;
+	padding-bottom:0.25em;
+	padding-left: 1em;
+	width: 38em;
+	display: inline-block;
+}
+
+.bsBody .subItem {
+	width: 37em;
+	padding-left: 1em;
+	display: inline-block;
+}
+
+.bsBody .itemSubtotal {
+	width: 5em;
+	text-align: right;
+	display: inline-block;
+	color: #888;
+}
+
+.bsBody .itemTotal {
+	width: 5em;
+	text-align: right;
+	display: inline-block;
+}
+
+.bsAcct {
+	width: 75%;
+}
+
+.bsAcct:nth-of-type(even) {
+	background-color: #FAFAFA;
+}
+
+.bsBreakdown {
+	margin-left: 1em;
+}
+
+.bsBody .sumLine {
+	border-bottom: solid 1px #CCCCCC;
+}
+
+.bsBody .sectionSumLine {
+	border-bottom: solid 1px #000;
+}
+
+.bsBody .sectionTotal {
+	padding-left: 1em;
+	padding-top: 0.5em;
+	padding-bottom: 1em;
+	font-size: 1em;
+}
+
+.bsBody .sectionTotal div {
+	display: inline-block;
+	text-align: right;
+}
+
+.bsBody .sectionTotal div:nth-child(1) {
+	width: 49em;
+	text-align: left;
+}
+
+.bsBody .sectionTotal div:nth-child(2) {
+	width: 5em;
+	text-align: right;
+}
+
+.bsBody .categoryTotal {
+	padding-left: 1em;
+	font-size: 1em;
+	font-weight: bold;
+}
+
+.bsBody .categoryTotal div {
+	display: inline-block;
+}
+
+.bsBody .categoryTotal div:nth-child(1) {
+	width: 49em;
+	text-align: left;
+}
+
+.bsBody .categoryTotal div:nth-child(2) {
+	width: 5em;
+	text-align: right;
+	border-bottom: 1px solid black;
+}
+
+.bsBody .ownersCapital {
+	padding-left: 1em;
+	padding-top: 1em;
+	padding-bottom: 1em;
+	font-size: 1em;
+}
+
+.bsBody .ownersCapital div {
+	display: inline-block;
+}
+
+.bsBody .ownersCapital div:nth-child(1) {
+	width: 49em;
+	text-align: left;
+}
+
+.bsBody .ownersCapital div:nth-child(2) {
+	width: 5em;
+	text-align: right;
+	border-bottom: 1px solid black;
+}
+
+.bsBody .stockholdersEquity {
+	padding-left: 1em;
+	padding-top: 0.3em;
+	padding-bottom: 0.3em;
+	font-size: 1em;
+}
+
+.bsBody .stockholdersEquity div {
+	display: inline-block;
+}
+
+.bsBody .stockholdersEquity div:nth-child(1) {
+	width: 49em;
+	text-align: left;
+}
+
+.bsBody .stockholdersEquity div:nth-child(2) {
+	width: 5em;
+	text-align: right;
+}
+
+.bsBody .stockholdersEquity .underline {
+	border-bottom: 1px solid black;
+}
+
+.bsBody .stockholdersEquity .indent1 {
+	position: relative;
+	left: 2em;
+}
+
+.bsBody .stockholdersEquity .total{
+	font-weight: bold;
+}
+
+.bsBody .irRevenue {
+	font-size: 1.1em;
+	width: 90%;
+	padding-top: 0.5em;
+	padding-bottom: 0.5em;
+	margin-left: 0.5em;
+	margin-top: 0.5em;
+}
+
+.bsBody .irRevenue div {
+	display: inline-block;
+}
+
+.bsBody .irRevenue div:nth-child(1) {
+	width: 44.5em;
+}
+
+.bsBody .irRevenue div:nth-child(2) {
+	width: 5em;
+	text-align: right;
+}
+
+.bsBody .tbRow {
+	margin-left: 0.5em;
+	width: 70%;
+	padding-top: 0.5em;
+	padding-bottom: 0.2em;
+}
+
+.bsBody .tbVRow:nth-of-type(odd) {
+	background-color: #FAFAFA;
+}
+
+.bsBody .tbRow div {
+	display: inline-block;
+}
+
+.bsBody .tbRow div:nth-child(1) {
+	width: 37em;
+}
+.bsBody .tbRow div:nth-child(2) {
+	width: 5em;
+	text-align: right;
+}
+.bsBody .tbRow div:nth-child(3) {
+	width: 5em;
+	text-align: right;
+}
+
+.bsBody .tbHeading {
+	padding-top: 1em;
+	padding-bottom: 0.5em;
+	border-bottom: 2px solid #6C9;
+	background-color: white;
+}
+
+.bsBody .tbSummary {
+	margin-top: 0.5em;
+	border-top: 1px solid #444;
+}
+
+.irHeader {
+	width: 80%;
+	/* background-color: #ebf7f1; */
+	height: 1em;
+	font-weight: bold;
+	padding-top: 1em;
+	padding-bottom: 0.5em;
+	border-bottom: 2px solid #6C9;
+}
+
+.bsBody .oeRow {
+	margin-left: 0.5em;
+	width: 70%;
+	padding-top: 0.5em;
+	padding-bottom: 0.2em;
+}
+
+.bsBody .oeFirstRow {
+	padding-top: 1.5em;
+}
+
+.bsBody .oeRow div {
+	display: inline-block;
+}
+
+.bsBody .oeRow div:nth-child(1) {
+	width: 37em;
+}
+
+.bsBody .oeRow div:nth-child(2) {
+	width: 5em;
+	text-align: right;
+}
+
+.bsBody .oeTotal {
+	border-top: 1px solid #888;
+	font-weight: bold;
+}
+
+.bsBody .tbdRow {
+	margin-left: 0.5em;
+	width: 80%;
+	padding-top: 0.5em;
+	padding-bottom: 0.2em;
+}
+
+.bsBody .tbdHeading {
+	padding-top: 1em;
+	padding-bottom: 0.5em;
+	border-bottom: 2px solid #6C9;
+	background-color: white;
+}
+
+.bsBody .tbdVRow:nth-of-type(odd) {
+	background-color: #FAFAFA;
+}
+
+.bsBody .tbdRow div {
+	display: inline-block;
+}
+
+.bsBody .tbdRow div:nth-child(1) {
+	width: 8em;
+}
+.bsBody .tbdRow div:nth-child(2) {
+	width: 37em;
+}
+.bsBody .tbdRow div:nth-child(3) {
+	width: 5em;
+	text-align: right;
+}
+.bsBody .tbdRow div:nth-child(4) {
+	width: 5em;
+	text-align: right;
+}
+
+.bsBody .line {
+	line-height: 20px;
+}
+.bsBody .section {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.bsBody .line div {
+	display: inline-block;
+	text-align: right;
+	width: 5em;
+}
+.bsBody .line div:nth-child(1) {
+	text-align: left;
+	width: 400px;
+}
+.bsBody .line .underline {
+	border-bottom: solid black 2px;
+}
+.indent1 {
+	position: relative;
+	left: 3em;
+}
+.indent2 {
+	position: relative;
+	left: 6em;
+}
+.indent3 {
+	position: relative;
+	left: 9em;
+}

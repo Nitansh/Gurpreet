@@ -1,0 +1,12 @@
+<div class="tabbedcontent shadowStyle">
+  <ul class="tabgroup lower">
+    <li class="tab" ng-class="{active:$state.includes('companyInformation')}"><a href="#/{{sessionId}}/problem/{{problem.number}}/business/CompanyInformation">Company Information</a></li>
+    <li class="tab" ng-class="{active:$state.includes('chartOfAccounts')}"><a href="#/{{sessionId}}/problem/{{problem.number}}/business/ChartOfAccounts">Chart of Accounts</a></li>
+    <li class="tab" ng-class="{active:$state.includes('generalJournal')}"><a href="#/{{sessionId}}/problem/{{problem.number}}/business/GeneralJournal/view">General Journal</a></li>
+  </ul>
+
+  <div class="innercontent clearFix">
+  	<div ui-view></div>
+  </div>
+      
+</div>

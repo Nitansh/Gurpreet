@@ -1,0 +1,158 @@
+@charset "UTF-8";
+/* okay, so, define, in general terms, a tabgroup */
+
+.tabgroup {
+	overflow: hidden;			/* a 'clearfix' strategy */
+}
+
+/* this gets applied to the li elements (so when you WANT shadows, you can get them...) */
+.tabholder {
+	float: left;
+	overflow:hidden;
+}
+
+/* this gets applied to a div INSIDE the li element if there are shadows; otherwise apply it to the li element */
+.tab {
+	float: left;
+	position: relative;
+	display: inline;
+
+	/* arbitrary styling of the actual text in the tab */
+	background-color: #555d84;
+
+	font-family: verdana, sans-serif;
+	font-size: 14px;
+	font-variant: small-caps;
+	color: #fff;
+	
+	text-align:center;
+	padding:3px 1px 6px 3px;
+	
+}
+
+.tab a {
+}
+
+/* apply to TAB, not TABHOLDER (i.e., NOT to the li element when using shadows), when the tab is active */
+.tab.active {
+	z-index: 1;	
+	
+	/* shared stylings we'll always apply (which could have been done individually as below) */
+	/* arbitrary */
+	background-color: #e5fcf1;
+	color: black;
+}
+
+/* for whatever follows the tab group, the key thing is 'position: relative' ... */
+	
+.tabbedcontent {
+	position: relative;			/* NOTE: border won't overylay tabs and content won't cast shadow on top of tabs without this; it's 'the magic' */
+	
+	/* evrything else is shared stylings (that could be individually styled as below) */
+	border: solid 2px black;	/* if desired, but then... */
+	top: -2px;			/* NOTE: this removes the 'border' gap, by sliding this div up by 2px */
+	padding: 0;
+	margin: 0;
+	background-color: #e5fcf1;	
+	/* width: 500px; */
+	padding-top: 3px;
+}
+
+/* okay, we've defined the basic tab stylings. the remainder specifies more individual tab styles... */
+
+.shadowStyle {
+	box-shadow:0 0 5px #000;	/* optionally, to match the shadow on the tabs... */
+}
+
+/* ********* additional styling for the upper tabgroup ********** */
+
+.tabgroup.upper {
+	padding-left: 5px;
+}
+
+.tabgroup.upper .tabholder {
+	padding:8px 5px 0 5px;		/* no padding on the bottom; other edges enough to reveal box shadow defined in .tab... */
+}
+
+.tabgroup.upper .tab {
+	box-shadow:0 0 5px #000; 	/* the Shadow knows... */
+	border: solid 2px #444;	
+	border-bottom: none;
+
+	/* arbitrary styling of the actual text in the tab */
+	background-color: #555d84;
+
+	font-family: verdana, sans-serif;
+	font-size: 14px;
+	font-variant: small-caps;
+	color: #fff;
+	
+	text-align:center;
+	padding:3px 1px 6px 3px;
+}
+
+.tabgroup.upper .tab.active {
+	background-color: #e5fcf1;
+	color: black;
+}
+
+.tabgroup.upper .tab.active a {
+	color: black;
+}
+
+.upperP {
+	padding: 5px 10px 5px 10px;
+}
+
+/* ********** additional styling for the lower tabgroup ********** */
+
+.tabgroup.lower {
+	padding-left:8px; 		/* indents first tab */
+}
+
+.tabgroup.lower .tabholder {
+	/* this is where you'd set something like the margin when you have a box-shadow; but we have no box-shadow
+		 so we could (and probably should) omit this css, since there are no elements of this type */
+}
+
+.tabgroup.lower .tab {
+	margin: 4px 5px 0 0;	/* no box shadow, so we set the margin directly */
+	border: solid 2px #333;		
+	border-bottom: none;
+	padding: 0 3px 5px 2px;
+	background-color: #7d83af;
+}
+
+.tabgroup.lower .tab.active {
+	background-color:#aedec9;
+	color: black;
+}
+
+.innercontent {
+	position: relative;	/* so the tab trick works... */
+	margin-top: -2px;		/* slide our 2px border beneath the tabs */
+	background-color:#aedec9;
+	
+	/* full bleed */
+	margin-left:0;
+	margin-right:0;
+
+	border: none;
+	border-top: solid 2px black;
+
+	padding: 10px;
+	
+	min-height: 10em;
+	max-height: 18em;
+	overflow-x: hidden;
+	overflow-y: scroll;
+}
+
+.innercontent::-webkit-scrollbar-thumb {
+    background-color: #399;
+}
+
+.fixedTableContainerInner::-webkit-scrollbar-thumb {
+    background-color: #399;
+}
+

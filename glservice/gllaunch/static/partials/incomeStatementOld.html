@@ -1,0 +1,90 @@
+<div class="bsBody">
+<div style="margin-left: 12em" class="bsTitle">
+    {{problem.company.name}}<br />
+    Income Statement<br />
+    {{periodEndedLine}}
+</div>
+
+<div class="irHeader"></div>
+
+
+<div ng-repeat="majorItem in incomeStatement.majorItems" class="bsBody">
+  <div ng-show="majorItem.type == 'account' && majorItem.subAccounts.length == 0">
+    <div class="irRevenue">
+      <div>{{problem.accounts[majorItem.account].name}}</div>
+      <div>{{majorItem.amount|bsNumber}}</div>
+    </div>
+  </div>
+  <div ng-show="majorItem.type == 'account' && majorItem.subAccounts.length > 0">
+      <div class="irRevenue">
+        <div>{{problem.accounts[majorItem.account].name}}</div>
+        <div>{{majorItem.amount}}</div>
+      </div>
+      <div class="bsBreakdown">
+        <div ng-repeat="subAccount in majorItem.subAccounts" class="bsAcct">
+          <div class="itemAccount">
+            {{problem.accounts[subAccount.number].name}}
+          </div>
+          <div class="itemSubtotal">
+          </div>
+          <div class="itemTotal">
+            {{subAccount.amount|bsNumber}}
+          </div>
+        </div>  
+        <div class="oeRow">
+          <div class="itemAccount">
+            Total {{problem.accounts[majorItem.account].name}}
+          </div>
+          <div class="itemSubtotal"></div>
+          <div class="itemTotal">
+            {{majorItem.total}}
+          </div>
+        </div>
+      </div>
+  </div>
+  <div ng-show="majorItem.type == '2-2'">
+    <div>{{majorItem.sectionName}}</div>
+      <div ng-repeat="act in majorItem.accounts">
+        {{problem.accounts[act.number].name}} : {{act.amount|bsNumber}}
+      </div>
+    </div>  
+    <div> {{majorItem.name}}: {{majorItem.total}} </div>
+  </div>
+
+  <div class="bsBreakdown">
+    <div class='bsAcct' ng-repeat="account in section.accounts" ng-show="totalForAcct(account)">
+      <div>
+        <div class="itemAccount">{{nameForAccount(account)}}</div>
+        <div class="itemSubtotal"></div>
+        <div class="itemTotal" ng-class="{sectionSumLine:($index==section.accounts.length-1)}">{{totalForAcct(account)|bsNumber}}</div>
+      </div>
+		</div>
+  </div>
+  
+  <div class="sectionTotal"><div>Total {{section.title}}</div><div>{{totalForAcct(section.accounts)|bsNumber}}</div></div>
+
+</div>
+    
+<div class="irRevenue"><div>Operating Income (Loss)</div><div>{{-totalForAcct('40250')-totalForCategory(expenses)|bsNumber}}</div></div>
+
+<div ng-repeat="section in other.sections">
+
+	<div class="sectionHeader"><h4>{{section.title}}:</h4></div>
+  
+  <div class="bsBreakdown">
+    <div class='bsAcct' ng-repeat="account in section.accounts" ng-show="totalForAcct(account)">
+      <div>
+        <div class="itemAccount">{{nameForAccount(account)}}</div>
+        <div class="itemSubtotal"></div>
+        <div class="itemTotal" ng-class="{sectionSumLine:($index==section.accounts.length-1)}">{{section.sectionSign*totalForAcct(account)|bsNumber}}</div>
+      </div>
+		</div>
+  </div>
+  
+  <div class="sectionTotal"><div>Total {{section.title}}</div><div>{{section.sectionSign*totalForAcct(section.accounts)|bsNumber}}</div></div>
+
+</div>
+
+<div class="irRevenue"><div>Net Income (Loss)</div><div>{{-totalForAcct('40250')-totalForCategory(expenses)-totalForCategory(other)|bsNumber}}</div></div>
+
+</div>

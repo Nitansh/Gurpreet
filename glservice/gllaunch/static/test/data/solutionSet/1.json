@@ -1,0 +1,63 @@
+{
+    "solutions": [
+        {
+            "problemNumber": "1",
+            "state": "work",
+            "generalJournal": {
+                "rows": [
+                    {
+                        "transactionId": "0",
+                        "subTransactionId": "0",
+                        "date": "Mar 1, 2013",
+                        "account": "40250",
+                        "amount": "-1500"
+                    },
+                    {
+                        "transactionId": "0",
+                        "subTransactionId": "1",
+                        "date": "Mar 1, 2013",
+                        "account": "10100",
+                        "amount": "1500"
+                    },
+                    {
+                        "transactionId": "1",
+                        "subTransactionId": "0",
+                        "date": "Mar 1, 2013",
+                        "account": "50350",
+                        "amount": "500"
+                    },
+                    {
+                        "transactionId": "1",
+                        "subTransactionId": "1",
+                        "date": "Mar 1, 2013",
+                        "account": "10100",
+                        "amount": "-500"
+                    },
+                    {
+                        "transactionId": "2",
+                        "subTransactionId": "0",
+                        "date": "Mar 1, 2013",
+                        "account": "70100",
+                        "amount": "500"
+                    },
+                    {
+                        "transactionId": "2",
+                        "subTransactionId": "1",
+                        "date": "Mar 1, 2013",
+                        "account": "10100",
+                        "amount": "-500"
+                    }
+                ]
+            },
+            "feedback": []
+        },
+        {
+            "problemNumber": "2",
+            "state": "work",
+            "generalJournal": {
+                "rows": []
+            },
+            "feedback": []
+        }
+    ]
+}

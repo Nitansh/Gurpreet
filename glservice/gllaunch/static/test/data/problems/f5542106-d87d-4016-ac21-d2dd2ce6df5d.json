@@ -1,0 +1,37 @@
+{
+    "guid": "f5542106-d87d-4016-ac21-d2dd2ce6df5d",
+    "number": 2,
+    "title": "Mary Shellley's Elecrtifying Experience",
+    "background": "Mary Shelley opened a medical practice specializing in re-animation of the dead. During the first month of operation (March 2012), the business, titled Mary Shelley, Limited Liability Corporation (LLC.), experienced the events shown below.",
+    "instructions": "Record the transactions in the journal of Mary Shelley, LLC. List the transactions by date. Select transaction in list, then enter values in General Journal below.",
+    "company": {
+        "name": "Mary Shelly, LLC"
+    },
+    "period": {
+        "start": "Mar 1, 2013",
+        "end": "Mar 30, 2013",
+        "length": "Month"
+    },
+    "events": [
+        {
+            "date": "Mar 6",
+            "item": "Shelley invested $59,000 in the business, which in turn issued its common stock to her."
+        },
+        {
+            "date": "Mar 9",
+            "item": "The business paid cash for land costing $37,000. Shelley plans to build an office building on the land."
+        },
+        {
+            "date": "Mar 12",
+            "item": "The business purchased medical supplies for $1,700 on account."
+        },
+        {
+            "date": "Mar 15",
+            "item": "Mary Shelley, LLC., officially opened for business."
+        },
+        {
+            "date": "Mar 31",
+            "item": "During the rest of the month, Shelley treated patients and earned service revenue of $11,600, receiving cash for half the revenue earned."
+        }
+    ]
+}

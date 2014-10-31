@@ -1,0 +1,24 @@
+<div class="bsBody">
+
+<div style="margin-left: 12em" class="bsTitle">
+    {{problem.company.name}}<br />
+    Transaction List by Date<br />
+    {{periodEndedLine}}
+</div>
+
+<div class="tbdHeading tbdRow">
+	<div>Date</div>
+  <div>Account Name</div>
+  <div>Debit</div>
+  <div>Credit</div>
+</div>
+
+<div class="tbdRow tbdVRow" ng-repeat="row in solution.generalJournal.periodRows | orderBy:['date.valueOf()','transactionId','isCredit','subTransactionId']">
+	<div>{{row.date | dateFormat}}</div>
+  <div ng-class="{indented:row.isCredit}">{{problem.accounts[row.account].name}}</div>
+  <div>{{row.debit | bsNumber | blankIfZero }}</div>
+  <div>{{row.credit | bsNumber | blankIfZero }}</div>
+</div>
+
+
+</div>

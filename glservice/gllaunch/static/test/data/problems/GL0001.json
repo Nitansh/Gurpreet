@@ -1,0 +1,61 @@
+{
+   "guid":"GL0001",
+   "number":1,
+   "title":"Bob Morin's Early Steps",
+   "background":"<p>This problem continues the Shine King Cleaning practice set begun in Chapter 2 and continued through Chapter 5.</p><p>Shine King Cleaning has decided that, in addition to providing cleaning services, it will sell cleaning products. Shine King uses the perpetual inventory system and the FIFO inventory costing method. During December 2015, Shine King completed the transactions that appear below. Information needed to record adjusting entries on December 31, 2015 follows:</p><p> A physical count of inventory on December 31, 2015 showed 330 units of goods on hand.  Depreciation for December 2015 is $170.  Accrued salaries expense of $700 on December 31, 2015.  On November 2, 2015 Shine King paid $2,000 to Pleasant Properties for November 2015 through February 2016 rent. (On November 2, 2015, Shine King recorded this cash payment as Prepaid Rent. On November 30, 2015, Shine King made the appropriate adjustment.)  On November 3, 2015 Shine King paid $2,400 for a business insurance policy for the term November 1, 2015 through October 31, 2016. (On November 3, 2015, Shine King recorded this cash payment as Prepaid Insurance. On November 30, 2015, Shine King made the appropriate adjustment.)  On November 16, 2015 Shine King received $3,600 for a 1-year contract beginning November 16, 2015 for cleaning services to be provided. The contract begins November 16, 2015 and ends November 15, 2016. (On November 16, 2015, Shine King recorded this cash receipt as Unearned Revenue. On November 30, 2015, Shine King made the appropriate adjustment.)  On November 20, 2015, Shine King borrowed $40,000 from a bank, on a long-term note payable, with an interest rate of 9% per year. (On November 30, 2015, Shine King made the appropriate interest-related adjustment.)</p>",
+   "instructions":"<p>The accounts used by Shine King are provided in the Chart of Accounts (click on &quot;Chart of Accounts&quot; to view). The beginning balances (December 1, 2015) have already been entered in the accounts.</p><p> Journalize the December transactions. Explanations are not required.  Post the journal entries to the accounts in the ledger. (Click on the &quot;Period&quot; tab, then click on &quot;Post Journal Entries&quot;.)  Review each of the accounts in the ledger to see the results of posting the journal entries, including the changes in each account as well as the unadjusted balance. (Click on &quot;General Ledger&quot; to view.)  Journalize the adjusting entries. Explanations are not required.  Post the adjusting entries to the accounts in the ledger. (Click on the &quot;Period&quot; tab, then click on &quot;Post Journal Entries&quot;.)  Review each of the accounts in the ledger to see the results of posting the adjusting entries, including the changes in each account as well as the adjusted balance. (Click on &quot;General Ledger&quot; to view.)  Review the adjusted trial balance as of December 31, 2015. Note: This is an adjusted trial balance since the adjusting entries have been prepared and posted. (Click on &quot;Trial Balance&quot; to view.)</p>",
+   "company":{
+      "name":"Shine King Cleaning"
+   },
+   "period":{
+      "start":"Dec 1, 2015",
+      "end":"Dec 31, 2015",
+      "length":"Month"
+   },
+   "events":[
+      {
+         "date":"Dec 2, 2015",
+         "item":"Purchased 600 units of inventory for $3,600 on account from Sparkle, Co., with terms 3/10, n/20."
+      },
+      {
+         "date":"Dec 5, 2015",
+         "item":"Purchased 400 units of inventory from Borax on account with terms 4/5, n/30. The total invoice was for $3,200, which included a $200 freight charge."
+      },
+      {
+         "date":"Dec 7, 2015",
+         "item":"Returned 100 units of inventory to Sparkle from the December 2 purchase."
+      },
+      {
+         "date":"Dec 9, 2015",
+         "item":"Paid Borax."
+      },
+      {
+         "date":"Dec 11, 2015",
+         "item":"Sold 350 units of goods to Happy Maids for $4,900 on account with terms 5/10, n/30."
+      },
+      {
+         "date":"Dec 12, 2015",
+         "item":"Paid Sparkle."
+      },
+      {
+         "date":"Dec 15, 2015",
+         "item":"Received 30 units with a retail price of $420 of goods back from customer Happy Maids. "
+      },
+      {
+         "date":"Dec 21, 2015",
+         "item":"Received payment from Happy Maids, settling the amount due in full."
+      },
+      {
+         "date":"Dec 28, 2015",
+         "item":"Sold 200 units of goods to Bridget, Inc., for cash of $3,000."
+      },
+      {
+         "date":"Dec 29, 2015",
+         "item":"Paid cash for Utilities of $350."
+      },
+      {
+         "date":"Dec 30, 2015",
+         "item":"Paid cash for Sales Commission Expense of $225."
+      }
+   ]
+}

@@ -1,0 +1,31 @@
+.navbar.navbar-fixed-top
+  .navbar-inner
+    .container
+      a.brand(href='#/') Authoring
+      ul.nav 
+        li.active
+          a Problem List
+      form.navbar-search.pull-right
+        input(type='text', class='search-query', placeholder='Search', ng-model='query')
+.container.problem-list(style='padding-top: 40px')
+  table.table
+    thead
+      th GUID
+      th Title 
+      th Status
+      th Book
+      th Chapter
+      th Learning Objective
+      th
+    tbody
+      tr(ng-repeat='p in problems | filter:query')
+        td 
+          a(href="#/details/{{p.guid}}") {{p.guid}}
+        td {{p.title}}
+        td {{statuses[p.status]}}
+        td {{p.book}}
+        td {{p.chapter}}
+        td {{p.learningObjective}}
+        td
+          i.icon-trash(ng-click='deleteProblem(p)')
+  button.btn(ng-click="newProblem()") New Problem

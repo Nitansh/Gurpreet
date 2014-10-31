@@ -1,0 +1,22 @@
+<div class="modal-header">
+    <h1>Results</h1>
+</div>
+<div class="modal-body">
+    <div class="row">
+        <div class="span3">Expected transactions:</div>
+        {{feedback.expectedTransactions}}
+    </div>
+
+    <div class="row">
+        <div class="span3">Transactions correct:</div>
+        {{feedback.transactionsCorrect}}
+    </div>
+
+    <div class="row">
+        <div class="span3">Transactions incorrect:</div>
+        {{feedback.transactionsIncorrect}}
+    </div>
+</div>
+<div class="modal-footer">
+    <button ng-click="close()" class="btn btn-primary" >Close</button>
+</div>

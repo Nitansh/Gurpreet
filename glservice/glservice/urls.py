@@ -19,6 +19,7 @@ urlpatterns = patterns('',
     
     # Examples:
     url(r'^$', 'glservice.views.home', name='home'),
+    url(r'^mulli$', 'glservice.views.mulli_home', name='mulli_home'),
     
     url(r'^gldata/', include('gldata.urls')),
 

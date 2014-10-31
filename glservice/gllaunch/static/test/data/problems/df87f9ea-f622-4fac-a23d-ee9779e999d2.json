@@ -1,0 +1,37 @@
+{
+    "guid": "df87f9ea-f622-4fac-a23d-ee9779e999d2",
+    "number": 1,
+    "title": "Bob Morin's Early Steps",
+    "background": "Bob Morin opened a medical practice specializing in surgery.<br/><br/>There was a lot to do to begin his business, and he took to the task with determination. He had to lease a building to work in, and buy various supplies before he could even begin to see patients.<br/><br/>During the first month of operation (August 2012), the business, titled Bob Morin, Professional Corporation (P. C.), experienced the events shown below.",
+    "instructions": "Record the transactions in the journal of Bob Morin, P. C. List the transactions by date. Select transaction in list, then enter values in General Journal below.",
+    "company": {
+        "name": "Bob Morin, PC"
+    },
+    "period": {
+        "start": "Mar 1, 2013",
+        "end": "Mar 30, 2013",
+        "length": "Month"
+    },
+    "events": [
+        {
+            "date": "Aug 6",
+            "item": "Morin invested $39,000 in the business, which in turn issued its common stock to him."
+        },
+        {
+            "date": "Aug 9",
+            "item": "The business paid cash for land costing $29,000. Morin plans to build an office building on the land."
+        },
+        {
+            "date": "Aug 12",
+            "item": "The business purchased medical supplies for $1,700 on account."
+        },
+        {
+            "date": "Aug 15",
+            "item": "Bob Morin, P. C., officially opened for business."
+        },
+        {
+            "date": "Aug 31",
+            "item": "During the rest of the month, Morin treated patients and earned service revenue of $7,600, receiving cash for half the revenue earned."
+        }
+    ]
+}

@@ -1,0 +1,32 @@
+<div class="clearFix">
+<div class="generalJournalBody defaultContent clearFix">
+<div>
+
+	<div class="fixedTableContainer bizAccounts">
+
+    <div class="headerBackground"></div>
+		<div class="fixedTableContainerInner bizAccounts">
+        <table class="bizAccounts" cellspacing="0">
+            <thead>
+                <tr>
+                    <th><div class="thInner">Account #</div></th>
+                    <th><div class="thInner">Description</div></th>
+                    <th><div class="thInner">Type</div></th>
+                </tr>
+             </thead>
+             <tbody>
+                <tr ng-repeat="act in includedAccounts">
+                    <td>{{act.number}}</td>
+                    <td>{{act.name}}</td>
+                    <td>{{act.type}}</td>
+                </tr>
+             </tbody>
+        </table>
+        </div>
+
+    </div>
+
+</div>
+
+</div>
+</div>

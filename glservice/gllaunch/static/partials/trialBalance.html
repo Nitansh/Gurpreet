@@ -1,0 +1,24 @@
+<div class="bsBody">
+
+<div style="margin-left: 9em" class="bsTitle">
+    {{problem.company.name}}<br />
+    Trial Balance<br />
+    {{solution.getPeriod().end.short()}}
+</div>
+
+<div class="tbHeading tbRow"><div>Account Name</div><div>Debit</div><div>Credit</div></div>
+
+<div class="tbRow tbVRow" ng-repeat="row in trialBalance(solution).rows">
+	<div>{{row.account.name}}</div>
+  <div>{{row.debit | bsNumber | blankIfZero}}</div>
+  <div>{{row.credit | bsNumber | blankIfZero}}</div>
+</div>
+
+<div class="tbSummary tbRow">
+	<div>Total</div>
+  <div>${{trialBalance(solution).totalDebit | bsNumber}}</div>
+  <div>${{trialBalance(solution).totalCredit | bsNumber}}</div>
+</div>
+
+
+</div>

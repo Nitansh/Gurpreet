@@ -1,0 +1,160 @@
+@charset "UTF-8";
+/* CSS Document */
+
+/* chart of caccounts table */
+
+.fixedTableContainer.bizAccounts {
+	width: 825px;
+	margin-left: 0.5em;
+}
+
+.fixedTableContainerInner.bizAccounts {
+	/* width: 500px; */
+}
+
+table.bizAccounts tr th:nth-child(1), table.bizAccounts tr td:nth-child(1) {
+	width: 6em;
+	text-align: center;
+}
+
+table.bizAccounts tr th:nth-child(2), table.bizAccounts tr td:nth-child(2) {
+	width: 30em;
+}
+
+table.bizAccounts tr th:nth-child(3), table.bizAccounts tr td:nth-child(3) {
+	width: 15em;
+}
+
+/* business general journal table */
+
+.fixedTableContainer.bizJournal {
+	width: 54em;
+	margin-left: 0.5em;
+}
+
+table.generalJournal tr td {
+	border-top:solid 0px #FFF;
+	border-bottom:solid 0px #FFF;
+	border-color: #999;
+	padding-top:0.25em;
+	padding-bottom:0.25em;
+}
+
+table.generalJournal tr th:nth-child(1), table.generalJournal tr td:nth-child(1) {
+	width: 1.5em;
+}
+
+table.generalJournal tr th:nth-child(2), table.generalJournal tr td:nth-child(2) {
+	width: 6em;
+}
+
+table.generalJournal tr td:nth-child(2) {
+	color: #888;
+}
+
+/*
+table.generalJournal tr th:nth-child(3), table.generalJournal tr td:nth-child(3) {
+	width: 3em;
+}
+*/
+
+table.generalJournal tr th:nth-child(3), table.generalJournal tr td:nth-child(3) {
+	width: 31em;
+}
+
+/* debit credit columns */
+
+table.generalJournal tr th:nth-child(4), table.generalJournal tr td:nth-child(4), 
+		table.generalJournal tr th:nth-child(5), table.generalJournal tr td:nth-child(5),
+		table.generalJournal tr th:nth-child(4) input, table.generalJournal tr td:nth-child(4) input,
+		table.generalJournal tr th:nth-child(5) input, table.generalJournal tr td:nth-child(5) input {
+	width: 8em;
+	text-align: right;
+	padding-right: 0.5em;
+	
+}
+
+tr.transactionRow {
+	border-top: 3px solid black;
+}
+
+
+table.generalJournal tr.transactionRow td:nth-child(2) {
+	color: black;
+}
+
+/* edit a transaction */
+
+.journalEdit {
+	background-color: rgb(235, 247, 241);
+}
+
+/* BEGINNING OF NEW GJ TABLE */
+.gjOuter {
+	position: relative;
+	padding-top: 25px;
+}
+
+.gjInner {
+	overflow-y: auto;
+	height: 200px;
+}
+
+.gjTable {
+	border: none;
+}
+
+.gjTable thead {
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.gjTable {
+	border: 1px black;
+}
+
+.gjTable td, .gjTable th {
+	height: 25px;
+	border: solid gray 1px;
+	padding: 0 0.3em;
+	margin: 0;
+	vertical-align: middle;
+}
+
+.gjTable th {
+	border: solid black 1px;
+	font-size: 0.8em;
+}
+.gjTable tr>:nth-child(1) {
+	text-align: center;
+	width: 20px;
+}
+.gjTable tr>:nth-child(2) {
+	width: 100px;
+}
+.gjTable tr>:nth-child(3) {
+	width: 550px;
+}
+.gjTable tr>:nth-child(4), .gjTable tr>:nth-child(5) {
+	width: 100px;
+	text-align: right;
+}
+.gjTable thead tr {
+	background-color: #bdd9ca;
+}
+.gjTable select, .gjTable input {
+	margin: 0;
+}
+.gjTable tr>:nth-child(2) input {
+	width: 90px;
+}
+.gjTable tr>:nth-child(3) select {
+	width: 400px;
+}
+
+.select2-results {
+	font-size: 0.8em;
+	max-height: 300px;
+}

@@ -1,0 +1,78 @@
+@charset "UTF-8";
+/* header bar */
+
+.headerBar {
+	overflow: hidden;
+	background-color: #b2b8d3;
+	
+	
+	box-shadow: 1px 1px 3px #777;
+
+}
+
+.headerBar nav {
+	float: right;
+	margin-right: 8px;	
+	
+}
+
+.headerBar nav ul {
+	border: none;
+	margin: auto;
+	
+}
+
+.headerBar div  {
+	overflow: hidden;
+	color: #fff;
+	padding-top: .3em;
+	padding-bottom: .3em;
+	padding-left: .5em;
+	margin-left: 0em;
+	margin-right: 0em;
+	margin-top: 6px;
+	margin-bottom: 6px; 
+
+	background: -webkit-gradient(linear, left top, right top, color-stop(0%,#555d84), color-stop(50%,#b2b8d3));
+	background: linear-gradient(to right,  #555d84 0%,#b2b8d3 50%);
+
+	/* box-shadow: 1px 1px 6px rgba(0,0,0,0.5); */
+}
+
+.headerBar li {
+   display: inline-block;
+   vertical-align: middle;
+   float: left;
+}
+
+/* Commented out to use standard <button> */
+.headerBar li.noArt {
+/*  margin-top:0.2em;
+	border: solid 2px #444;
+	padding-left: 6px;
+	padding-right: 6px;
+	padding-top: 2px;	 	
+	padding-bottom: 3px;	
+	margin-left: 0px;
+	margin-right: 5px;
+	background-color: #4ab077;
+	font-family: verdana, sans-serif;
+	font-size: 14px;
+	color: #fff;
+	font-variant: small-caps;
+	
+	-moz-box-shadow: 1px 1px 6px rgba(0,0,0,0.5);
+	-webkit-box-shadow: 1px 1px 6px rgba(0,0,0,0.5);
+	box-shadow: 1px 1px 6px rgba(0,0,0,0.5);
+*/	
+	/* this lines them up with the "home" icon */
+	position: relative;
+	top: -4px; 
+}
+
+.headerBar li.active button {
+	background-color: #c7dff4;
+	color: black;
+}
+
+

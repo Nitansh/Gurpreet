@@ -1,0 +1,49 @@
+<h2 class="problemTitle">Problem {{problem.number}} : {{problem.title}}</h2>
+<div class='problemStatement'>
+    <div class="probCol1"> 
+        <div><p ng-bind-html-unsafe="'<b>Background: </b>'+problem.background"</p></div>
+    </div>
+    
+    <div class="probCol2">
+        <div><p ng-bind-html-unsafe="'<b>Assignment: </b>'+problem.instructions"</p></div>
+    </div>
+</div>
+
+<div class="eventData">
+    <p><b>Transactions:</b></p>
+    <div class="events">
+        <div class="eventlist" ng-repeat="event in problem.events | orderBy:['date.valueOf()', 'id']">
+            <div class="eventlistDate">{{event.date | dateFormat}}</div>
+            <div class="eventlistItem">{{event.item}}</div>
+        </div>
+	</div>
+</div>
+
+<div class="globalMenuBody">
+
+<p>
+
+	<ul class="globalMenu">
+        <li><button ng-class="{disabled:!solution.mode.isActive('save')}" ng-click="save()">Save Work</button></li>
+        <li><button ng-class="{disabled:!solution.mode.isActive('reset')}" ng-click="reset()">Reset</button></li>
+        <li><button ng-class="{disabled:!solution.mode.isActive('results')}" ng-click="results()">Results</button></li>
+        <li><button ng-class="{disabled:!solution.mode.isActive('submit')}" ng-click="submit()">Submit Work</button></li>
+
+      </ul>
+
+      <div style="float: right">
+      <button ng-class="{disabled:!hasPrevPeriod()}" ng-click="prevPeriod()">&lt;</button>
+      <span style="position: relative; top: 5px">
+      {{solution.getCurrentPeriod().start.short()}}
+      &mdash;
+      {{solution.getCurrentPeriod().end.short()}}
+      </span>
+      <button ng-click="nextPeriod()">&gt;</button>
+      </div>     
+ 
+  </p>
+
+</div>
+
+
+

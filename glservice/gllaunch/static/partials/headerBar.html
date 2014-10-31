@@ -1,0 +1,14 @@
+<div ng-controller="HeaderController" class="headerBar">
+  <div>
+    <h1 class="assignmentTitle">{{assignment.title}}</h1>
+    <nav>
+    	<ul class="menu">
+        	<li class="noArt"><button ng-click="prevProblem()">Prev</button></li>
+            <li  ng-class="{active:p.number==problem.number}" class="noArt" ng-repeat="p in assignment.problems"><button ng-click="selectProblem(p.number)">{{p.number}}</button></li>
+            <li  class="noArt"><button ng-click="nextProblem()">Next</button></li>
+            <li><a ng-click="goHome()"><img src="/static/img/home-art.png" /></a></li>
+                     
+        </ul>
+    </nav>
+    </div>
+</div>

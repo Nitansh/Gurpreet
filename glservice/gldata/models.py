@@ -121,9 +121,3 @@ class ProblemDefinition(models.Model):
         result = grade(student_answers, correct_answers)
         
         return result._asdict()
-        
-        
-        
-        
-    
-    

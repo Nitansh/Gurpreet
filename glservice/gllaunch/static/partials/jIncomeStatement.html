@@ -1,0 +1,65 @@
+<div class="bsBody">
+<div style="margin-left: 12em" class="bsTitle">
+    {{problem.company.name}}<br />
+    Income Statement<br />
+    {{periodEndedLine}}
+</div>
+
+<div class="irHeader"></div>
+
+
+<div class="section" ng-repeat="majorItem in incomeStatement.majorItems">
+  <div ng-show="majorItem.type == 'sum'">
+    <div class="line">
+      <div>{{majorItem.name}}</div>
+      <div></div>
+      <div></div>
+      <div>{{majorItem.amount|bsNumber}}</div>
+    </div>
+  </div>
+  <div ng-show="majorItem.type == 'account' && majorItem.subAccounts.length == 0">
+    <div class="line">
+      <div>{{problem.accounts[majorItem.account].name}}</div>
+      <div></div>
+      <div></div>
+      <div>{{majorItem.amount|bsNumber}}</div>
+    </div>
+  </div>
+  <div ng-show="majorItem.type == 'account' && majorItem.subAccounts.length > 0">
+      <div class="line">
+        <div>{{problem.accounts[majorItem.account].name}}</div>
+        <div></div>
+        <div>{{majorItem.amount|bsNumber}}</div>
+      </div>
+      <div ng-repeat="subAccount in majorItem.subAccounts" class="line">
+        <div class="indent1"> {{problem.accounts[subAccount.number].name}} </div>
+        <div> </div>
+        <div ng-class="{underline:$last}" class="itemTotal"> {{subAccount.amount|bsNumber}} </div>
+      </div>  
+      <div class="line">
+        <div> {{majorItem.name}} </div>
+        <div></div>
+        <div></div>
+        <div> {{majorItem.total|bsNumber}} </div>
+      </div>
+  </div>
+  <div ng-show="majorItem.type == '2-2'">
+    <div class="line">
+      <div> {{majorItem.sectionName}}: </div>
+    </div>
+    <div ng-repeat="act in majorItem.accounts" class="line">
+      <div class="indent1"> {{problem.accounts[act.number].name}} </div>
+      <div></div>
+      <div ng-class="{underline:$last}"> {{act.amount|bsNumber}} </div>
+    </div>
+    <div class="line">
+      <div class="indent2"> {{majorItem.name}} </div>
+      <div></div>
+      <div></div>
+      <div class="underline"> {{majorItem.total|bsNumber}} </div>
+    </div>
+  </div>
+  
+</div>
+    
+</div>

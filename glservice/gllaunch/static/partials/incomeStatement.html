@@ -1,0 +1,154 @@
+<div class="bsBody">
+<div style="margin-left: 12em" class="bsTitle">
+    {{problem.company.name}}<br />
+    Income Statement<br />
+    {{periodEndedLine}}
+</div>
+
+<div class="irHeader"></div>
+
+
+<div class="section" ng-repeat="majorItem in incomeStatement(solution).majorItems">
+  <div ng-show="majorItem.type == 'sum'">
+    <div class="line">
+      <div>{{majorItem.name}}</div>
+      <div></div>
+      <div></div>
+      <div>{{majorItem.amount*majorItem.sign|bsNumber}}</div>
+    </div>
+  </div>
+  <div ng-show="majorItem.type == 'account' && majorItem.subAccounts.length == 0">
+    <div class="line">
+      <div>{{problem.accounts[majorItem.account].name}}</div>
+      <div></div>
+      <div></div>
+      <div>{{majorItem.amount*majorItem.sign|bsNumber}}</div>
+    </div>
+  </div>
+  <div ng-show="majorItem.type == 'account' && majorItem.subAccounts.length > 0">
+      <div class="line">
+        <div>{{problem.accounts[majorItem.account].name}}</div>
+        <div></div>
+        <div>{{majorItem.amount*majorItem.sign|bsNumber}}</div>
+      </div>
+      <div ng-repeat="subAccount in majorItem.subAccounts" class="line">
+        <div class="indent1"> {{problem.accounts[subAccount.number].name}} </div>
+        <div> </div>
+        <div ng-class="{underline:$last}" class="itemTotal"> {{subAccount.amount*majorItem.sign|bsNumber}} </div>
+      </div>  
+      <div class="line">
+        <div> {{majorItem.name}} </div>
+        <div></div>
+        <div></div>
+        <div> {{majorItem.total*majorItem.sign|bsNumber}} </div>
+      </div>
+  </div>
+  <div ng-show="majorItem.type == 'section'">
+    <div class="line">
+      <div> {{majorItem.sectionName}}: </div>
+    </div>
+    <div ng-show="majorItem.accounts.length == 1">
+      <div class="line">
+        <div class="indent2"> {{problem.accounts[majorItem.accounts[0].number].name}} </div>
+        <div></div>
+        <div></div>
+        <div class="underline"> {{majorItem.total*majorItem.sign|bsNumber}} </div>
+      </div>
+    </div>
+    <div ng-show="majorItem.accounts.length > 1">
+      <div ng-repeat="act in majorItem.accounts" class="line">
+        <div class="indent1"> {{problem.accounts[act.number].name}} </div>
+        <div></div>
+        <div ng-class="{underline:$last}"> {{act.amount*majorItem.sign|bsNumber}} </div>
+      </div>
+      <div class="line">
+        <div class="indent2"> {{majorItem.name}} </div>
+        <div></div>
+        <div></div>
+        <div class="underline"> {{majorItem.total*majorItem.sign|bsNumber}} </div>
+      </div>
+    </div>
+  </div>
+  <div ng-show="majorItem.type == 'costOfGoodsSoldSection'">
+    <div class="line">
+      <div> Cost of Goods Sold: </div>
+    </div>
+    <div class="line">
+      <div class="indent1"> Merchandise Inventory, {{solution.getCurrentPeriod().start | dateFormat}} </div>
+      <div></div>
+      <div>{{majorItem.merchandiseInventory.start}}</div>
+      <div></div>
+    </div>
+    <div class="line">
+      <div class="indent2"> Purchases </div>
+      <div>{{majorItem.purchases | bsNumber}}</div>
+      <div></div>
+      <div></div>
+    </div>
+    <div class="line">
+      <div class="indent3"> Less: Purchase Returns and Allowances </div>
+      <div>{{majorItem.purchaseReturns | bsNumber}}</div>
+      <div></div>
+      <div></div>
+    </div>
+    <div class="line">
+      <div class="indent3"> Purchase Discounts </div>
+      <div class="underline">{{majorItem.purchaseDiscounts | bsNumber}}</div>
+      <div></div>
+      <div></div>
+    </div>
+    <div class="line">
+      <div class="indent2"> Net Purchases </div>
+      <div>{{majorItem.netPurchases | bsNumber}}</div>
+      <div></div>
+      <div></div>
+    </div>
+    <div class="line">
+      <div class="indent2"> Add: Freight in </div>
+      <div class="underline">{{majorItem.freightIn | bsNumber}}</div>
+      <div></div>
+      <div></div>
+    </div>
+    <div class="line">
+      <div class="indent1"> Cost of Goods Purchased </div>
+      <div></div>
+      <div class="underline">{{majorItem.costOfGoodsPurchased | bsNumber}}</div>
+      <div></div>
+    </div>
+    <div class="line">
+      <div class="indent1"> Cost of Goods Available for Sale </div>
+      <div></div>
+      <div>{{majorItem.costOfGoodsAvailableForSale | bsNumber}}</div>
+      <div></div>
+    </div>
+    <div class="line">
+      <div class="indent1"> Less: Merchandise Inventory, {{solution.getCurrentPeriod().end | dateFormat}} </div>
+      <div></div>
+      <div class="underline">{{majorItem.merchandiseInventory.end | bsNumber}}</div>
+      <div></div>
+    </div>
+    <div class="line">
+      <div class="indent1"> Cost of Goods Sold </div>
+      <div></div>
+      <div></div>
+      <div class="underline">{{majorItem.costOfGoodsSold | bsNumber}}</div>
+    </div>
+  </div>
+  <div ng-show="majorItem.type == 'sumWithAccount'">
+    <div class="line">
+      <div> {{majorItem.sum*majorItem.signName}}: </div>
+      <div></div>
+      <div></div>
+      <div> {{majorItem.sum*majorItem.sign|bsNumber}} </div>
+    </div>
+    <div class="line">
+      <div class="indent1"> {{problem.accounts[majorItem.account].name}} </div>
+      <div></div>
+      <div></div>
+      <div class="underline"> {{majorItem.accountAmount|bsNumber}} </div>
+    </div>
+  </div>
+  
+</div>
+    
+</div>

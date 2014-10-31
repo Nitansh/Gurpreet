@@ -1,0 +1,480 @@
+/* app css stylesheet */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+	-webkit-margin-before: 0em;
+	-webkit-margin-after: 0em;
+	-webkit-margin-start: 0em;
+	-webkit-margin-end: 0em;
+	
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* Handy bits to have */
+
+b {
+	font-weight:bold;
+}
+
+i {
+	font-style: italic;
+}
+
+.clearFix { clear: both; } 
+
+/* scroll bars */
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    /* background: #FFF; */
+    -webkit-box-shadow: inset 1px 1px 2px rgba(0,0,0,0.1);
+}
+::-webkit-scrollbar-thumb {
+		border-radius: 10px;
+    background: #CCC;
+    -webkit-box-shadow: inset 1px 1px 2px rgba(0,0,0,0.2);
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #AAA;
+}
+::-webkit-scrollbar-thumb:active {
+    background: #888;
+    -webkit-box-shadow: inset 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+
+/* general formatting */
+
+body { /* JMS: changed from .mainContent */
+	background-color:#777;
+	font-family: Verdana, Geneva, sans-serif;
+}
+
+.centeredColumn {
+	margin-left:auto;
+	margin-right:auto;
+	width: 1024px;
+	background-color:#fff;
+	height: 790px;
+}
+
+.indentedColumn {
+	padding-left: 0.5em;
+	padding-right: 0.5em;
+}
+
+button {
+  margin-top:0.2em;
+	border: solid 2px #444;
+	padding-left: 6px;
+	padding-right: 6px;
+	padding-top: 2px;	 	
+	padding-bottom: 3px;	
+	margin-left: 0px;
+	margin-right: 5px;
+	background-color: #4ab077;
+	font-family: verdana, sans-serif;
+	font-size: 14px;
+	color: #fff;
+	font-variant: small-caps;
+	
+	-moz-box-shadow: 1px 1px 6px rgba(0,0,0,0.5);
+	-webkit-box-shadow: 1px 1px 6px rgba(0,0,0,0.5);
+	box-shadow: 1px 1px 6px rgba(0,0,0,0.5);
+	
+	/* this lines them up with the "home" icon */
+	position: relative;
+	top: 2px; 
+}
+
+h1 {
+	font-weight: 200;
+	font-variant: small-caps;
+	font-size: 1.5em;
+	
+	float: left;
+	margin: 0px;
+}
+
+h2 {
+	font-weight: 200;
+}
+
+/* problem statement */
+
+.problemTitle {
+	font-size: 1.0em;
+	padding: 0;
+	margin: 0 0 0.4em;
+	font-weight:bold;
+	margin-top:0.8em;
+}
+
+.problemStatement {
+	overflow: hidden;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	height: 10.5em;
+	
+	border: solid 1px #CCCCCC;
+	box-shadow: 1px 1px 6px #888888;
+	
+	font-size: 0.9em;
+}
+
+.probCol1 {
+	margin-left: 1em;
+	margin-right: 1em;
+	margin-top: .5em;
+	float: left;
+	width: 48%;
+}
+
+.probCol1 div {
+	font-size: .9em;
+}
+
+.probCol2 {
+	margin-top: .5em;
+	font-size: .9em;
+	float: left;
+	width: 45%;
+}
+
+/* tabs support; should be moved to tabs and refined */
+
+li.active a {
+	color: black;
+}
+
+a:link, a:visited {
+	text-decoration: none;
+	color: white;
+}
+
+li a.selected {
+	text-decoration: none;
+	color: black;
+}
+
+
+/* event list */
+
+.eventlist {
+	overflow:hidden;
+	width: 100%;
+}
+
+.eventlistDate {
+	padding-left: 1em;
+	float:left;
+	width: 10%;
+}
+
+.eventlistItem {
+	pading-right: 1em;
+	float: left;
+	width:85%;
+}
+
+.eventData > p {
+	/* margin-left: 1.3em; */
+	margin-top: 0.9em;
+	margin-bottom: 0.5em;
+}
+
+.eventData {
+	margin-bottom: 20px;
+	margin-left: 1em;
+	font-size: 0.9em;
+}
+
+
+.events > div:nth-of-type(odd), .events > div:nth-of-type(odd) > div {
+	background-color: #d7e9e0;
+}
+
+.events {
+	/* width: 95%; */
+	height: 6em;
+	/* margin-left: auto; */
+	margin-right: auto;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	font-size: .9em;
+	
+
+	border: solid 1px #CCCCCC;
+	box-shadow: 1px 1px 6px #888888;
+}
+
+.events div {
+	padding-bottom: .2em;
+	
+}
+
+.events > div:nth-of-type(even), .events > div:nth-of-type(even) > div {
+	background-color: #f0f8f4;
+}
+
+ /* "global" buttons in the middle of the page */
+.globalMenu {
+  width: 100%; /* JMS: box should expand to full width so buttons are centered */
+  text-align: center;
+  list-style: none; 
+  margin-bottom: 0em;
+  padding: 0 0 0.5em;
+	
+
+/* here's where we center the global buttons.  
+   
+	/* Firefox */
+	
+	display:-moz-box;
+	-moz-box-pack:center;
+	-moz-box-align:center;
+
+/* Safari, Chrome, and Opera */
+
+	display:-webkit-box;
+	-webkit-box-pack:center;
+	-webkit-box-align:center;
+
+
+/* W3C */
+
+	display:box;
+	box-pack:center;
+	box-align:center;
+
+
+	 
+}
+
+.globalMenu li {
+	display: inline-block;
+}
+
+/*.globalMenu button {
+   	
+	 display: inline-block;
+	
+	 border: solid 2px #333;		
+	 padding-left: 3px;
+	 padding-right: 3px;
+	 padding-bottom: 3px;
+	 padding-top: 2px;
+	 margin-left: 0px;
+	 margin-right: 0px;
+	
+	 background-color: #4ab077;
+	 font-family: verdana, sans-serif;
+	 font-size: 14px;
+	 color: #000;
+	 font-variant: small-caps;	
+	 
+	 -moz-box-shadow: 1px 1px 6px rgba(0,0,0,0.5);
+	-webkit-box-shadow: 1px 1px 6px rgba(0,0,0,0.5);
+	box-shadow: 1px 1px 6px rgba(0,0,0,0.5);
+}
+*/
+
+/* general journal table handling */
+
+.generalJournalBody {
+
+	padding-top: 10px;
+	padding-bottom: 10px;
+	border: solid 2px black;
+	background-color: #aedec9;
+	padding-left: .5em;
+	width: 95%;
+	
+}
+
+
+.fixedTableContainer {
+	border-right: solid 1px black;
+	border-bottom: solid 1px black;
+	background-color: #bdd9ca;
+	
+	/* width: 986px; */
+
+	max-height: 350px; 
+	margin: 5px auto;
+	position: relative; /* could be absolute or relative */
+	padding-top: 20px; /* height of header */
+}
+
+.fixedTableContainerInner {
+	overflow-x: hidden;
+	overflow-y: scroll;
+	max-height: 280px;
+}
+
+.headerBackground {
+	/* width: 985px; */
+
+	background-color: #bdd9ca;
+	border: 1px solid black;
+	height: 20px; /* height of header */
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+}
+    
+/* main data input area*/
+table {
+	/* width: 970px;*/
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+
+.thInner {
+	font-size:0.8em;
+	position: absolute;
+	top: 0;
+	line-height: 20px; /* height of header */
+	text-align: center;
+	border-left: 1px solid black;
+	padding-left: 5px;
+}
+	
+.checkboxInner {
+	position: absolute;
+	top: 0;
+	line-height: 20px; 
+	text-align: left;
+	padding-left: 1px;
+}
+
+table tr td {
+	padding-left: 5px;
+	border: solid 1px black;
+	font-size:0.8em;
+}
+
+td:first-child {
+	padding-left: 1px;
+}
+
+td:last-child {
+}
+
+table tr td:nth-child(3) input {
+	width: 2em;
+}
+
+table tr td:nth-child(4) input {
+	width: 6em;
+}
+
+table tr td:nth-child(5) input, table tr td:nth-child(6) input {
+	width: 6em;
+}
+
+table tr:nth-of-type(odd) {
+	background-color:#ebf7f1;
+}
+
+table tr:nth-of-type(even) {
+	background-color:#bdd9ca;
+}
+
+table tr.incorrectRow:nth-of-type(odd) {
+	background-color:#edadad;
+}
+
+table tr.incorrectRow:nth-of-type(even) {
+	background-color:#f09090;
+}
+
+.tableBottomRow {
+	margin-top: .4em;
+	margin-bottom: 2em;
+	margin-right: 1.1em;
+}
+
+.tableButtons li {
+	float: left;
+}
+
+.commitButtons {
+	position: relative;
+	left: 3em;
+}
+
+.commitButtons li {
+	float: left;
+}
+
+/* default for body content */
+
+.defaultContent {
+	padding: 0;
+	margin: 0;
+	padding-top: 0.5em;
+	border: none;
+	background-color: #aedec9;
+}
+
+.indented {
+	text-indent: 1em;
+}
+
+table.generalJournal tr:not(.transactionRow) span.date {
+	display: none;
+}
+
+button.disabled {
+	opacity: 0.6;
+}
+
+.problemStatement ol {
+	list-style: decimal inside;
+}
+.problemStatement ul {
+	list-style: circle inside;
+}

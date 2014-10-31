@@ -1,0 +1,32 @@
+  <div class="mainContent">
+  
+    <div class="centeredColumn">
+      <ng-include src="'/static/partials/headerBar.html'"></ng-include>
+      
+      <div class="indentedColumn">
+      
+        <ng-include src="'/static/partials/problemStatement.html'"></ng-include>
+        
+        <div id="actionHolder">
+        
+          <ul class="tabgroup upper">
+          
+            <li class="tabholder">
+                <div class="tab" ng-class="{active:$state.includes('business')}"><a href="#/{{sessionId}}/problem/{{problem.number}}/business">Business</a></div>
+            </li>
+            <li class="tabholder">
+                <div class="tab" ng-class="{active:$state.includes('reports')}"><a href="#/{{sessionId}}/problem/{{problem.number}}/reports">Reports</a></div>
+            </li>
+          
+          </ul>
+          
+          <div ui-view></div>
+        
+          <!-- <p>{{solution.mode.description}}</p> -->
+
+        </div>
+        
+      </div> 
+    </div>
+  
+  </div>

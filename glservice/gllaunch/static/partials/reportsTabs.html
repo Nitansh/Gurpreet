@@ -1,0 +1,13 @@
+<div class="tabbedcontent shadowStyle">
+  <ul class="tabgroup lower">
+    <li ng-show="! problem.reportsHidden.transactionsByDate" class="tab" ng-class="{active:$state.includes('transactionsByDate')}"><a href="#/{{sessionId}}/problem/{{problem.number}}/reports/TransactionsByDate">Transactions By Date</a></li>
+    <li ng-show="! problem.reportsHidden.generalLedger" class="tab" ng-class="{active:$state.includes('generalLedger')}"><a href="#/{{sessionId}}/problem/{{problem.number}}/reports/GeneralLedger">General Ledger</a></li>
+    <li ng-show="! problem.reportsHidden.trialBalance" class="tab" ng-class="{active:$state.includes('trialBalance')}"><a href="#/{{sessionId}}/problem/{{problem.number}}/reports/TrialBalance">Trial Balance</a></li>
+    <li ng-show="! problem.reportsHidden.incomeStatement" class="tab" ng-class="{active:$state.includes('incomeStatement')}"><a href="#/{{sessionId}}/problem/{{problem.number}}/reports/IncomeStatement">Income Statement</a></li>
+    <li ng-show="! problem.reportsHidden.statementOfEquity" class="tab" ng-class="{active:$state.includes('statementOfOwnersEquity')}"><a href="#/{{sessionId}}/problem/{{problem.number}}/reports/StatementOfOwnersEquity">Statement of Equity</a></li>
+    <li ng-show="! problem.reportsHidden.balanceSheet" class="tab" ng-class="{active:$state.includes('balanceSheet')}"><a href="#/{{sessionId}}/problem/{{problem.number}}/reports/BalanceSheet">Balance Sheet</a></li>
+    <li ng-show="false" class="tab" ng-class="{active:$state.includes('cashFlow')}"><a href="#/{{sessionId}}/problem/{{problem.number}}/reports/CashFlow">Cash Flow</a></li>
+  </ul>
+  
+  <div ui-view class="innercontent clearFix"></div>    
+</div>  

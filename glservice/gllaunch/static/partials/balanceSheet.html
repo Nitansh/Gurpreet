@@ -1,0 +1,94 @@
+<div ng-repeat="bs in [balanceSheet(solution)]" class="bsBody">
+
+<div style="margin-left: 8em" class="bsTitle">
+    {{problem.company.name}}<br />
+    Balance Sheet<br />
+    {{solution.getPeriod().end.short()}}
+</div>
+<div ng-repeat="category in [bs.assets, bs.liabilities]">
+  <h3>{{category.name}}</h3>
+
+  <div ng-repeat="section in category.sections">
+
+  	<div ng-show="section.name" class="sectionHeader"><h4>{{section.name}}:</h4></div>
+
+    <div class="bsBreakdown">
+      <div class='bsAcct' ng-repeat="act in section.accounts">
+        <div>
+          <div class="itemAccount">{{problem.accounts[act.number].name}}</div>
+          <div class="itemSubtotal"><span ng-show="act.subAccounts.length > 0" >{{act.amount|bsNumber}}</span></div>
+          <div ng-show="act.subAccounts.length == 0" class="itemTotal">{{act.amount|bsNumber}}</div>
+        </div>
+      
+        <div ng-repeat="subAct in act.subAccounts">
+          	<div>
+              <div class="subItem"><span ng-show="subAct.amount < 0">Less</span> {{problem.accounts[subAct.number].name}}</div>
+              <div class="itemSubtotal sumLine">{{subAct.amount|bsNumber}}</div>
+              <div class="itemTotal" ng-show="$last">{{act.total|bsNumber}}</div>
+            </div>
+        </div>
+      </div>
+    </div>
+      
+    <div class="sectionTotal"><div>Total {{section.name}}</div><div>{{section.total|bsNumber}}</div></div>
+    
+  </div>
+  <div class="categoryTotal"><div>Total {{category.name}}</div><div>{{category.total|bsNumber}}</div></div>
+</div>
+
+<div ng-show="problem.ownerType == 'soleProprietorship'">
+  <h3>Owner's Equity</h3>
+
+  <div class="ownersCapital">
+    <div>{{problem.accounts[30100].name}}</div>
+    <div>{{bs.accounts.find({number:30100}).amount | bsNumber}}</div>
+  </div>
+
+  <div class="categoryTotal">
+    <div>Total Liabilities and Owner's Equity</div>
+    <div>{{bs.accounts.find({number:30100}).amount + bs.liabilities.total | bsNumber}}</div>
+  </div>
+</div>
+
+<div ng-repeat="se in [bs.sections.find({name:'stockholders_equity'})]" ng-show="problem.ownerType == 'corporation'">
+  <h3>Stockholder's Equity</h3>
+
+  <div ng-repeat="act in se.accounts" class="stockholdersEquity">
+    <div>{{problem.accounts[act.number].name}}</div>
+    <div ng-class="{underline:$last}"><span ng-show="$first">$</span>{{-act.amount | bsNumber}}</div>
+  </div>
+
+  <div class="stockholdersEquity">
+    <div class="indent1">Total Paid-In Capital</div>
+    <div>{{-se.total | bsNumber}}</div>
+  </div>
+
+  <div class="stockholdersEquity">
+    <div>Retained Earnings</div>
+    <div>{{-bs.accounts.find({number:30700}).amount | bsNumber}}</div>
+  </div>
+
+  <div class="stockholdersEquity">
+    <div>Less: Treasury Stock</div>
+    <div>{{-bs.accounts.find({number:30750}).amount | bsNumber}}</div>
+  </div>
+
+  <div class="stockholdersEquity">
+    <div>Accumulated Other Comprehensive Income</div>
+    <div class="underline">{{-bs.accounts.find({number:30800}).amount | bsNumber}}</div>
+  </div>
+
+  <div class="stockholdersEquity">
+    <div class="total">Total Stockholder's Equity</div>
+    <div class="total underline">{{-se.total + -bs.accounts.find({number:30700}).amount + -bs.accounts.find({number:30750}).amount + -bs.accounts.find({number:30800}).amount | bsNumber}}</div>
+  </div>
+
+  <div class="stockholdersEquity">
+    <div class="total">Total Liabilities and Stockholder's Equity</div>
+    <div class="total underline">${{-se.total + -bs.accounts.find({number:30700}).amount + -bs.accounts.find({number:30750}).amount + -bs.accounts.find({number:30800}).amount + -bs.liabilities.total | bsNumber}}</div>
+  </div>
+
+</div>
+
+</div>
+

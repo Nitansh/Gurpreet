@@ -1,0 +1,27 @@
+
+<div class="glBody">
+
+<div style="margin-left: 8em" class="bsTitle">
+    {{problem.company.name}}<br />
+    General Ledger<br />
+    {{periodEndedLine}}
+</div>
+
+<div class="glAccount" ng-repeat="section in generalLedger(solution)">
+    <div class="glAcctHeader"><div>{{section.account.name}}</div><div>Account no. {{section.account.number}}</div></div>
+    <div class="acctBlock">
+      <div class="glTableFix">Balance</div>
+      <table>
+      <tr><th>Date</th><th>Debit</th><th>Credit</th><th>Debit</th><th>Credit</th></tr>
+      <tr class="glEntry">
+        <td>{{section.openingRow.date | dateFormat}}</td><td></td><td></td><td>{{section.openingRow.amount|debit:'-'}}</td><td>{{section.openingRow.amount|credit:'-'}}</td>
+      </tr>
+      <tr class="glEntry" ng-repeat="row in section.rows">
+        <td>{{row.date | dateFormat}}</td><td>{{row.amount|debit}}</td><td>{{row.amount|credit}}</td><td>{{row.balance|debit:'-'}}</td><td>{{row.balance|credit:'-'}}</td>
+      </tr>
+      </table>
+    </div>
+</div>
+
+
+</div>

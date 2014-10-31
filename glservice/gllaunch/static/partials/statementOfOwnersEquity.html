@@ -1,0 +1,64 @@
+<div ng-show="problem.ownerType =='soleProprietorship'" ng-repeat="soe in [statementOfOwnersEquity(solution)]" class="bsBody">
+
+<div style="margin-left: 6em" class="bsTitle">
+    {{problem.company.name}}<br />
+    Statement of Owner's Equity<br />
+    {{periodEndedLine}}
+</div>
+
+<div class="oeRow oeFirstRow">
+	<div>{{problem.accounts[30100].name}}, {{solution.getCurrentPeriod().start | dateFormat}}</div>
+  <div>${{soe.startingCapital | bsNumber}}</div>
+</div>
+
+<div class="oeRow">
+	<div>Owner Contribution</div>
+  <div>{{soe.ownerContribution | bsNumber}}</div>
+</div>
+
+<div class="oeRow">
+	<div>Net Income (Loss)</div>
+  <div>{{soe.netIncome|bsNumber}}</div>
+</div>
+
+<div class="oeRow">
+	<div>Owner Withdrawal</div>
+  <div>{{soe.ownerWithdrawal|bsNumber}}</div>
+</div>
+
+<div class="oeRow oeTotal">
+	<div>{{problem.accounts[30100].name}}, {{solution.getCurrentPeriod().end | dateFormat}}</div>
+  <div>${{soe.endingCapital|bsNumber}}</div>
+</div>
+
+</div>
+
+<div ng-show="problem.ownerType =='corporation'" ng-repeat="sore in [statementOfRetainedEarnings(solution)]" class="bsBody">
+
+<div style="margin-left: 6em" class="bsTitle">
+    {{problem.company.name}}<br />
+    Statement of Retained Earnings<br />
+    {{periodEndedLine}}
+</div>
+
+<div class="oeRow oeFirstRow">
+  <div>Retained Earnings, {{solution.getCurrentPeriod().start | dateFormat}}</div>
+  <div>${{sore.startingRE | bsNumber}}</div>
+</div>
+
+<div class="oeRow">
+  <div>Net Income (Loss)</div>
+  <div>{{sore.netIncome|bsNumber}}</div>
+</div>
+
+<div class="oeRow">
+  <div>Dividends</div>
+  <div>{{sore.dividends|bsNumber}}</div>
+</div>
+
+<div class="oeRow oeTotal">
+  <div>Retained Earnings, {{solution.getCurrentPeriod().end | dateFormat}}</div>
+  <div>${{sore.endingRE|bsNumber}}</div>
+</div>
+
+</div>

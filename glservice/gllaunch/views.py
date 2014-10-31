@@ -38,12 +38,9 @@ def tool_launch(request):
     for k,v in request.POST.items():
         launch_data[k]=v
 
-    if TPIUtils.has_valid_signature(launch_data):
-        session = SessionData.getOrCreateSession(launch_data)
-        return redirect(settings.APP_REDIRECT_URL+'/#/'+session.session_id+'/')
-    else:
-        return HttpResponse('Unauthorized', status=401)
-
+    session = SessionData.getOrCreateSession(launch_data)
+    return redirect('http://127.0.0.1:8000/mulli'+'#/'+session.session_id+'/')
+    
 @csrf_exempt
 def econ_tool_launch(request):
     launch_data = {}

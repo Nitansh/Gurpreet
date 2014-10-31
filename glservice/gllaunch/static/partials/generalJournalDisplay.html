@@ -1,0 +1,70 @@
+<div>
+  <div>
+
+    <div class="gjOuter">
+      <div class="gjInner"> 
+        <table class="gjTable">
+          
+          <thead>
+            <tr>
+              <th><input ng-show="solution.state != 'review'" type="checkbox" ng-checked="areAllSelected()" ng-click="selectAll()" /></th>
+              <th>Date</th>
+              <!-- <th>#</th> -->
+              <th>Accounts</th>
+              <!-- <th>Description</th> -->
+              <th>Debit</th>
+              <th>Credit</th>
+            </tr>
+          </thead>
+          
+          <tbody ng-show="generalJournal.periodRows.length>0">
+            <tr ng-repeat="row in periodRows"
+                ng-class="{ transactionRow: isFirstTransactionRow(row), incorrectRow: isIncorrectTransaction(row) }"> <!-- JMS: what is this ng-class for? -->
+              <td ng-switch on="solution.state">
+                <div ng-switch-when="review" ng-switch on="isIncorrectTransaction(row)">
+                  <div ng-switch-when="false">
+                    <i ng-show="isFirstTransactionRow(row)" tooltip-placement="right" tooltip="This transaction is correct." style="color: green" class="icon-check"></i>
+                  </div>
+                  <div ng-switch-when="true">
+                    <i ng-show="isFirstTransactionRow(row)" tooltip-placement="right" tooltip="One or more entries in this transaction are incorrect." style="color: red" class="icon-warning-sign"></i>
+                  </div>
+                </div>
+                <input type="checkbox" ng-switch-default ng-show="isFirstTransactionRow(row)" ng-checked="testSelected(row.transactionId)" ng-click='select(row.transactionId)'/>
+              </td>
+              <td><span class="date" ng-show="isFirstTransactionRow(row)">{{row.date | dateFormat}}</span></td>
+              <!-- <td>{{row.transaction}}</td> -->
+              <td ng-class="{indented:row.isCredit}">{{problem.accounts[row.account].name}}</td>
+              <!-- <td><input ng-model='row.description' type="text" value="{{row.description}}"/></td> -->
+              <td>{{row.debit | bsNumber | blankIfZero}}</td>
+              <td>{{row.credit | bsNumber | blankIfZero}}</td>  
+            </tr>
+          </tbody>
+
+          <tbody ng-show="generalJournal.periodRows.length==0">
+            <tr>
+              <td></td>
+              <td></td>
+              <!-- <td>{{row.transaction}}</td> -->
+              <td>No transactions in Journal</td>
+              <!-- <td><input ng-model='row.description' type="text" value="{{row.description}}"/></td> -->
+              <td></td>
+              <td></td>  
+            </tr>
+          </tbody>
+          
+        </table>
+      </div>
+      <div ng-show="solution.state != 'review'" class="tableBottomRow">
+      
+        <ul class="tableButtons buttonGroup">
+          <li class="noArt"><button ng-click="addTransaction()">Add Transaction</button></li>
+          <li class="noArt"><button ng-click="editTransaction()" ng-disabled="! isOneTransactionSelected()" ng-class="{disabled: ! isOneTransactionSelected()}">Edit Checked Transaction</button></li>
+          <li class="noArt"><button ng-click="deleteTransactions()" ng-disabled="! isTransactionSelected()" ng-class="{disabled: ! isTransactionSelected()}">Delete Checked Transactions</button></li>
+        </ul>
+
+      </div>
+    </div>
+      
+  </div>
+
+</div>

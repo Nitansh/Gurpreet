@@ -1,0 +1,187 @@
+.navbar.navbar-fixed-top
+  .navbar-inner
+    .container
+      a.brand(href='#/') Authoring
+      ul.nav
+        li.active
+          a Details for problem {{problem.guid}}
+      button.btn.pull-left(ng-click='save()') Save All
+      p.save-text.pull-left(ng-show='isDataSaved()') Data saved.
+.container.details(style='padding-top: 40px')
+  form.form-horizontal
+    legend General
+    .control-group
+      label.control-label Title
+      .controls
+        input.span4(type='text', ng-model='problem.title')
+    .control-group
+      label.control-label Status
+      .controls
+        select.span4(ng-model='problem.status', ng-options='k as v for (k,v) in statuses')
+    .control-group
+      label.control-label Book
+      .controls
+        input.span4(type='text', ng-model='problem.book')
+    .control-group
+      label.control-label Chapter
+      .controls
+        input.span4(type='text', ng-model='problem.chapter')
+    .control-group
+      label.control-label Learning Objective
+      .controls
+        input.span4(type='text', ng-model='problem.learningObjective')
+    .control-group
+      label.control-label Company
+      .controls
+        input.span4(type='text', ng-model='problem.company.name')
+    .control-group
+      label.control-label Owner Type
+      .controls
+        select.span4(ng-model='problem.ownerType')
+          option(value='soleProprietorship') Sole Proprietorship 
+          //- option(value='partnership') Partnership
+          option(value='corporation') Corporation
+
+    .control-group
+      label.control-label Company Type
+      .controls
+        select.span4(ng-model='problem.companyType')
+          option(value='service') Service
+          option(value='service+merchandiserPerpetual') Combo Service + Merchandiser Perpetual
+          option(value='service+merchandiserPeriodic') Combo Service + Merchandiser Periodic
+          option(value='merchandiserPerpetual') Merchandiser Perpetual
+          option(value='merchandiserPeriodic') Merchandiser Periodic
+
+    .control-group
+      label.control-label Period
+      .controls
+        .input-append
+          input.span2(type='text', bs-datepicker, ng-model='problem.period.start')
+          button.btn(type='button', data-toggle='datepicker')
+            i.icon-calendar
+        select.span2(ng-model='problem.period.length')
+          option(value='1') Month
+          option(value='2') 2 months
+          option(value='3') Quarter
+          option(value='4') 4 months
+          option(value='5') 5 months
+          option(value='6') 6 months
+          option(value='7') 7 months
+          option(value='8') 8 months
+          option(value='9') 9 months
+          option(value='10') 10 months
+          option(value='11') 11 months
+          option(value='12') Year 
+     .control-group
+      label.control-label Background
+      .controls.controls-row
+        textarea.span8(jwysiwyg, ng-model='problem.background')
+    .control-group
+      label.control-label Instructions
+      .controls.controls-row
+        textarea.span8(jwysiwyg, ng-model='problem.instructions')
+    .control-group
+      label.control-label Reports hidden
+      .controls.controls-row
+        label.checkbox
+          input(type='checkbox', ng-model='problem.reportsHidden.transactionsByDate')
+          | Transactions By Date
+        label.checkbox
+          input(type='checkbox', ng-model='problem.reportsHidden.generalLedger')
+          | General Ledger
+        label.checkbox
+          input(type='checkbox', ng-model='problem.reportsHidden.trialBalance')
+          | Trial Balance
+        label.checkbox
+          input(type='checkbox', ng-model='problem.reportsHidden.incomeStatement')
+          | Income Statement
+        label.checkbox
+          input(type='checkbox', ng-model='problem.reportsHidden.statementOfEquity')
+          | Statement of Equity
+        label.checkbox
+          input(type='checkbox', ng-model='problem.reportsHidden.balanceSheet')
+          | Balance Sheet
+        label.checkbox
+          input(type='checkbox', ng-model='problem.reportsHidden.cashFlow')
+          | Cash Flow
+  form
+    legend Events
+    .controls.controls-row(ng-repeat='event in problem.events | orderBy:["date.valueOf()", "id"]')
+      input.span2(type="text", bs-datepicker, ng-model='event.date')
+      textarea.span8(ng-model='event.item', init-focus)
+      .span1
+        i.icon-trash(ng-click='deleteEvent(event)')
+    .row
+        button.offset2.btn(type='button', ng-click='newEvent()')
+          | New Event
+  form(when-visible='isSolutionVisible')
+    legend Correct Solution
+    .row
+      .span2 Date
+      .span6 Account
+      .span1 Debit 
+      .span1 Credit
+    div(ng-repeat="transaction in solution.transactions | orderBy:['date.valueOf()', 'id']")
+      .controls.controls-row(ng-repeat="row in transaction.rows | orderBy:['!debit', 'subTransactionId']")
+        input.span2(ng-show='$first',
+                    type="text",
+                    bs-datepicker,
+                    ng-model='transaction.date')
+        .new-row.span2(ng-show='$last', ng-click='newTransactionRow(transaction)') + row
+        .new-row.span2(ng-show='! $first && ! $last')
+        select.span6(
+          ui-select2
+          ng-model='row.account'
+          data-placeholder='Select an account')
+          option(value='')
+          option(
+            ng-repeat='act in chartOfAccounts.accountList | filter:accountIncludedInProblem | orderBy:"number"'
+            value='{{act.number}}')
+            | {{ act.number }} - {{ problem.accounts[act.number].name }}
+        .span1
+          input.span1(type='text', ng-model='row.debit')
+        .span1
+          input.span1(type='text', ng-model='row.credit')
+        .span1(ng-show='! ($last && $index == 1)')
+          i.icon-trash(ng-click='deleteTransactionRow(transaction, row)')
+    .row
+      button.btn.offset2(type='button', ng-click='newTransaction()')
+        | New Transaction
+  form        
+    legend Chart of Accounts
+    .controls.controls-row
+      button.btn(ng-click='selectNone()') Select none
+      button.btn(ng-click='selectAll()') Select all
+      button.btn(ng-click='defaultIncludedAccounts()') Default enabled
+      button.btn(ng-click='defaultAccountNames()') Default account names
+      button.btn(ng-click='zeroInitialBalances()') Zero initial balances
+    .row
+      table.table.table-condensed.span10
+        tr
+          th Enabled
+          th Account
+          th
+          th Initial Balance
+        tr(ng-repeat='act in chartOfAccounts.accountList | orderBy:"number"')
+          td
+            input(type='checkbox', ng-model='problem.accounts[act.number].isIncluded')
+          td {{ act.number }}
+          td
+            input.span7(type='text', ng-model='problem.accounts[act.number].name')
+          td
+            input.span1(type='text', ng-model='problem.accounts[act.number].openingBalance')
+  hr
+  button.btn(ng-click='save()') Save All
+
+.navbar.navbar-fixed-bottom(ng-show='isSolutionVisible')
+  .navbar-inner
+    #condensed-event-list.container
+      table.table.table-condensed
+        thead
+          tr
+            th Date 
+            th Event
+        tbody
+          tr(ng-repeat='event in problem.events | orderBy:["date.valueOf()", "id"]')
+            td.date {{event.date.short()}}
+            td {{event.item}}

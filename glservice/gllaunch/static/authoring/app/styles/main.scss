@@ -1,0 +1,91 @@
+$baseFontSize: 12px;
+$baseLineHeight: 16px;
+
+@import "bootstrap-sass/lib/bootstrap";
+
+// @import "bootstrap-sass/lib/responsive";
+
+/* Put your CSS here */
+// // html, body {
+// //   margin: 20px;
+// // }
+
+// body {
+//     background: #fafafa;
+//     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+//     color: #333;
+// }
+
+// .hero-unit {
+//     margin: 50px auto 0 auto;
+//     width: 300px;
+//     font-size: 18px;
+//     font-weight: 200;
+//     line-height: 30px;
+//     background-color: #eee;
+//     border-radius: 6px;
+//     padding: 60px;
+// }
+
+// .hero-unit h1 {
+//     font-size: 60px;
+//     line-height: 1;
+//     letter-spacing: -1px;
+// }
+
+// .details .controls {
+//     @extend .span8;
+//     input, textarea {
+//         width: 100%;
+//     }
+// }
+
+// .details .events {
+//     li {
+//         @include makeRow();
+//     }
+//     .event-date {
+//         @include makeColumn(2);
+//     }
+//     .event-item {
+//         @include makeColumn(8);
+//     }
+// }
+
+// input, button {
+//     height: auto !important;
+// }
+
+select[multiple='multiple'] {
+    height: 300px;
+}
+
+.clickable-date, .new-row, i.icon-trash {
+    cursor: pointer;    
+    &:hover {
+        color: blue;
+    }
+}
+
+.new-row {
+    color: blue;
+    display: block;
+    margin-left: 0 !important;
+    text-align: right;
+    line-height: 26px;
+}
+
+#condensed-event-list {
+    font-size: .8em;
+    line-height: .8em;
+    max-height: 200px;
+    overflow-y: scroll;
+    td.date {
+        white-space: nowrap;
+    }
+}
+
+.save-text {
+    padding: 10px;
+    color: #00ff00;
+}

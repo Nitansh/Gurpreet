@@ -1,0 +1,51 @@
+<div class="bsBody">
+
+<div style="margin-left: 9em" class="bsTitle">
+    {{problem.company.name}}<br />
+    Statement of Cash Flows<br />
+    {{periodEndedLine}}
+</div>
+<h3>Cash flows from operating activities</h3>
+
+<div class="sectionHeader"><h4>Receipts</h4></div>
+  <div>
+    <div class="cfItemAccount">{{receipts.title}}</div>
+    <div class="itemSubtotal"></div>
+    <div class="itemTotal" ng-class="{sectionSumLine:true}">{{receipts.amount|bsNumber}}</div>
+  </div>
+
+<div class="sectionHeader"><h4>Payments</h4></div>
+<div ng-repeat="payment in payments">
+  <div>
+    <div class="cfItemAccount">{{payment.title}}</div>
+    <div class="itemSubtotal" ng-class="{sectionSumLine:($index==payments.length-1)}">{{payment.amount|bsNumber}}</div>
+   	<div class="itemTotal sectionSumLine" ng-show="$index==payments.length-1">{{paymentsTotal | bsNumber}}</div>
+  </div>
+</div>
+<div class="cfItemAccount">Net cash provided by operating activities</div>
+<div class="itemSubtotal"></div>
+<div class="itemTotal sectionSumLine">{{paymentsTotal + receipts.amount | bsNumber}}</div>
+
+<div class="sectionHeader"><h4>Cash flow from investing activities</h4></div>
+<div ng-repeat="invest in investing">
+  <div>
+    <div class="cfItemAccount">{{invest.title}}</div>
+    <div class="itemSubtotal" ng-class="{sectionSumLine:($index==investing.length-1)}">{{invest.amount|bsNumber}}</div>
+   	<div class="itemTotal sectionSumLine" ng-show="$index==investing.length-1">{{investingTotal | bsNumber}}</div>
+  </div>
+</div>
+<div class="sectionHeader"><h4>Cash flow from financing activities</h4></div>
+<div ng-repeat="finance in financing">
+  <div>
+    <div class="cfItemAccount">{{finance.title}}</div>
+    <div class="itemSubtotal" ng-class="{sectionSumLine:($index==financing.length-1)}">{{finance.amount|bsNumber}}</div>
+   	<div class="itemTotal sectionSumLine" ng-show="$index==financing.length-1">{{financingTotal | bsNumber}}</div>
+  </div>
+</div>
+
+<div class="cfItemAccount">Net increase in cash</div>
+<div class="itemSubtotal"></div>
+<div class="itemTotal sectionSumLine">{{paymentsTotal + receipts.amount + investingTotal + financingTotal | bsNumber}}</div>
+
+</div>
+

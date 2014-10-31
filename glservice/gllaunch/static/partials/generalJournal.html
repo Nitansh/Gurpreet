@@ -1,0 +1,64 @@
+<div>
+  <form name="transactionsForm">
+   
+    <div class="gjOuter">
+      <div class="gjInner">
+        <table class="gjTable">
+          
+          <thead>
+            <tr>
+              <th><input type="checkbox" ng-checked="areAllSelected()" ng-click="selectAll()"/></th>
+              <th>Date</th>
+              <!-- <th><div class="thInner">#</div></th> -->
+              <th>Account</th>
+              <!-- <th><div class="thInner">Description</div></th> -->
+              <th>Debit</th>
+              <th>Credit</th>
+            </tr>
+          </thead>
+          
+          <tbody>
+            <tr ng-repeat="row in (rows = (transactionRows | orderBy:['isCredit','subTransactionId']))">
+              <td><input type="checkbox" ng-click="select(row.subTransactionId)" ng-checked="testSelected(row.subTransactionId)"/></td>
+              <td><div ng-switch on="$index">
+              	<div ng-switch-when="0">
+                	<input ng-model='row.date' ui-date="{minDate:solution.getCurrentPeriod().start, maxDate:solution.getCurrentPeriod().end}" required />
+                </div>
+                <div ng-switch-default>&nbsp;</div>
+              </td>
+              <!-- <td><input type='text' ng-model='row.transaction' value='{{row.transaction}}'/></td> -->
+              <td><select ui-select2="{placeholder: 'Select an account', width: '550px'}" ng-model='row.account'>
+                <option value=""></option>
+                <option ng-repeat="act in problem.includedAccounts" value="{{act.number}}">{{act.number}} - {{act.name}}</option>
+              </select></td>
+              <!-- <td><input ng-model='row.description' type="text" value="{{row.description}}"/></td> -->
+              <td>
+                <input ng-model='row.debit' ng-change="zeroCredit(row)"></input>
+              </td>
+              <td>
+                <input ng-model='row.credit' ng-change="zeroDebit(row)"></input>
+              </td>  
+            </tr>
+          </tbody>
+          
+        </table>
+      </div>
+    </div>
+    
+    <div class="tableBottomRow">
+    
+      <ul class="tableButtons buttonGroup">
+        <li class="noArt"><button ng-click="addRow()">Add Row</button></li>
+        <li class="noArt"><button ng-click="deleteRows()">Delete Checked Rows</button></li>
+      </ul>
+  
+      <ul class="commitButtons buttonGroup">
+        <li class="noArt"><button ng-click="postToJournal()" ng-disabled="! isReadyForPost()" ng-class="{disabled:! isReadyForPost()}">Post to General Ledger</button></li>
+        <li class="noArt"><button ng-click="transactionCancelled()">Cancel</button></li>  
+      </ul>
+  
+    </div>
+  
+  </form>
+
+</div>
